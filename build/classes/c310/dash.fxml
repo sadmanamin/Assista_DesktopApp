@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="c310.DashController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="127.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="99.0" fitWidth="407.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assista1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="172.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="wallChng" mnemonicParsing="false" onAction="#goToWallpaperScreen" prefHeight="65.0" prefWidth="125.0" style="-fx-background-radius: 20; -fx-background-color: #e17055;" text="Change Wallpaper" textFill="#fffafa">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="taskManager" mnemonicParsing="false" onAction="#goToTaskScreen" prefHeight="65.0" prefWidth="125.0" style="-fx-background-radius: 20; -fx-background-color: #e17055;" text="Task Manager">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="quickAccess" mnemonicParsing="false" onAction="#goToQuickAccess" prefHeight="65.0" prefWidth="125.0" style="-fx-background-radius: 20; -fx-background-color: #e17055;" text="Quick Access" />
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="61.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#goToSignIn" text="Log Out" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
