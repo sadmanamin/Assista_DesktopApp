@@ -28,6 +28,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import com.sun.jna.platform.win32.WinDef.UINT_PTR;// import JNA Platform and 5.3.2
+import com.sun.jna.win32.*;
+import java.util.HashMap;
+//import com.sun.jna.Library;
+import static com.sun.jna.Library.OPTION_FUNCTION_MAPPER;
+import static com.sun.jna.Library.OPTION_TYPE_MAPPER;
+import com.sun.jna.Native;
 
 public class Wallpaper {
 
@@ -75,7 +82,12 @@ public class Wallpaper {
                 Image image = new Image(selectedFile.toURI().toString());
                 //System.out.println(path);
                 selectedImage.setImage(image);
-
+                
+                path = selectedFile.getAbsolutePath();
+                System.out.println(path);
+                WallpaperChanger.change(path);
+                
+                
                 Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Person", "test", "1234");
                 String query = "Insert into TEST.WALLPAPER(USERID,IMAGE) values(?,?)";
                 PreparedStatement pst = con.prepareStatement(query);
@@ -114,4 +126,26 @@ public class Wallpaper {
     void initialize() {
 
     }
+    
+    /*public interface SPI extends StdCallLibrary {
+ 
+         //from MSDN article
+         long SPI_SETDESKWALLPAPER = 20;
+         long SPIF_UPDATEINIFILE = 0x01;
+         long SPIF_SENDWININICHANGE = 0x02;
+         
+         SPI INSTANCE = (SPI) Native.loadLibrary("user32", SPI.class, new HashMap<String, Object>() { //String was changed from Object
+             {
+                 put(OPTION_TYPE_MAPPER, W32APITypeMapper.UNICODE);
+                 put(OPTION_FUNCTION_MAPPER, W32APIFunctionMapper.UNICODE);
+             }
+         });
+ 
+         boolean SystemParametersInfo(
+                 UINT_PTR uiAction,
+                 UINT_PTR uiParam,
+                 String pvParam,
+                 UINT_PTR fWinIni
+         );
+     }*/
 }
