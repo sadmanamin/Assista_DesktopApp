@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="c310.TaskManagerController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="73.0" prefWidth="600.0">
+         <children>
+            <Label text="assista - task manager" textFill="#084b9e">
+               <font>
+                  <Font name="Roboto Light" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
+         <VBox.margin>
+            <Insets top="70.0" />
+         </VBox.margin>
+         <children>
+            <TextField fx:id="minutevalue" prefHeight="78.0" prefWidth="142.0" promptText="minute">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="secondValue" prefHeight="78.0" prefWidth="142.0" promptText="second" />
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0">
+         <children>
+            <BottomNavigationButton fx:id="sleepBtn" onAction="#callShutdwon" prefHeight="32.0" prefWidth="115.0" style="-fx-background-radius: 5;" text="Shutdown">
+               <VBox.margin>
+                  <Insets left="190.0" />
+               </VBox.margin>
+            </BottomNavigationButton>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="102.0" prefWidth="600.0">
+         <children>
+            <BottomNavigationButton fx:id="runningTasks" onAction="#callRunningTasks" style="-fx-background-color: #000034; -fx-background-radius: 5;" text="Show Running Tasks" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

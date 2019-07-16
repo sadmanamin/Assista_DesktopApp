@@ -70,8 +70,14 @@ public class DashController {
     }
 
     @FXML
-    void goToTaskScreen(ActionEvent event) {
-
+    void goToTaskScreen(ActionEvent event) throws IOException {
+        Parent task = FXMLLoader.load(getClass().getResource("TaskManager.fxml"));
+        Scene wallPScene = new Scene(task);
+        window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Assista");
+        window.setScene(wallPScene);
+        //Wallpaper.curStage = window;
+        window.show();
     }
 
     @FXML
