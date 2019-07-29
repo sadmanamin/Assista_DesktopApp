@@ -24,34 +24,60 @@ public class ListProcesses {
 
         return Integer.parseInt(s);
     }
+    
+    private int getPid(String[] s){
+        for(int c=1;c<s.length;c++){
+            if(s[c].length()>0) return toInt(s[c]);
+        }
+        return -1;
+    }
 
     public void showList() {
         int c = 1;
+        int mx1=0,mx2=0,pid=0;
+        System.out.println("Entered ListProcess");
         try {
             String line;
-            HashMap<String, Integer> taskList = new HashMap<String, Integer>();
             Process p = Runtime.getRuntime().exec(System.getenv("windir") + "\\system32\\" + "tasklist.exe");
+            System.out.println(111111);
             BufferedReader input
                     = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            line = input.readLine();
+            line = input.readLine();
+            line = input.readLine();
 
-            line = input.readLine();
-            line = input.readLine();
-            line = input.readLine();
-            
+            System.out.println(22222);
             while ((line = input.readLine()) != null) {
-               System.out.println((c++)+" "+line); //<-- Parse data here.
-                String[] listOftask = line.split(" ");
-                //System.out.println(listOftask.length);
-                String name = listOftask[0];
-                int mem = toInt(listOftask[listOftask.length - 2]);
-//                System.out.println(name + " " + mem);
                 
-                taskList.put(name, mem);
+                System.out.println(333);
+                String[] listOftask = line.split(" ");
+                String name = listOftask[0];
+               if(name.equals("python.exe")){
+                   SystemInfoTest.sz++;
+                   System.out.println((c++)+" "+line);
+               } //<-- Parse data here.
+                
+                //System.out.println(listOftask[1]);
+                int mem = toInt(listOftask[listOftask.length - 2]);
+                
+                if(name.equals("python.exe") && mx1<mem){
+                    mx2=mx1;
+                    SystemInfoTest.pid2=SystemInfoTest.pid1;
+                    SystemInfoTest.pid1 = getPid(listOftask);
+                    
+                    mx1=mem;
+                }
+                else if(name.equals("python.exe") && mx2<mem){
+                    SystemInfoTest.pid2 = getPid(listOftask);
+                    mx2=mem;
+                }
             }
-            //System.out.println(taskList.get("System"));
             input.close();
         } catch (Exception err) {
             err.printStackTrace();
         }
+        //return pid;
     }
+    
+    
 }
