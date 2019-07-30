@@ -6,8 +6,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class TaskManagerController {
 
@@ -23,9 +28,14 @@ public class TaskManagerController {
     
     @FXML
     private Button cancelBtn;
+    
+    @FXML
+    private Button backToDash;
 
     @FXML
     private TextField minutevalue;
+    
+    
 
     @FXML
     private TextField secondValue;
@@ -35,6 +45,16 @@ public class TaskManagerController {
 
     @FXML
     private Button jupyterNotebook;
+    
+    @FXML
+    void goToDash(ActionEvent event) throws IOException {
+        Parent signIn = FXMLLoader.load(getClass().getResource("dash.fxml"));
+        Scene signInScene = new Scene(signIn);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Assista");
+        window.setScene(signInScene);
+        window.show();
+    }
 
     @FXML
     void callCancel(ActionEvent event) throws IOException {

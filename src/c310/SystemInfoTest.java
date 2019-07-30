@@ -6,7 +6,10 @@
 // https://github.com/oshi/oshi/issues/359 
 package c310;
 
+//import oshi.SystemInfo;
+import java.util.logging.Logger;
 import oshi.SystemInfo;
+//import oshi.SystemInfo;
 //import org.slf4j.LoggerFactory;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.HardwareAbstractionLayer;

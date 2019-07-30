@@ -46,10 +46,10 @@ public class ListProcesses {
             line = input.readLine();
             line = input.readLine();
 
-            System.out.println(22222);
+            //System.out.println(22222);
             while ((line = input.readLine()) != null) {
                 
-                System.out.println(333);
+                //System.out.println(333);
                 String[] listOftask = line.split(" ");
                 String name = listOftask[0];
                if(name.equals("python.exe")){
