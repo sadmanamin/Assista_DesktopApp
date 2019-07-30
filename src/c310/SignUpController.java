@@ -1,7 +1,7 @@
 package c310;
 
 import java.io.IOException;
-import java.util.regex.*;  
+import java.util.regex.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -41,6 +41,9 @@ public class SignUpController {
     private PasswordField pass;
 
     @FXML
+    private TextField firstTeacher;
+
+    @FXML
     private PasswordField confirmPass;
 
     @FXML
@@ -74,33 +77,38 @@ public class SignUpController {
     void submitSignUp(ActionEvent event) throws SQLException, IOException, Exception {
 
         Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Person", "test", "1234");
-        
-        if(pass.getText().length()<7){
-            changeLabel.setText("Password must contain 7 or more letter");
-        }
 
-        else if (!checkPassword()) {
+        if (pass.getText().length() < 7) {
+            changeLabel.setText("Password must contain 7 or more letter");
+        } else if (!checkPassword()) {
             System.out.println("Hellu from Pass");
             changeLabel.setText("Password doesnt match");
-        }
-        
-        else if(!Pattern.matches(email.getText(), "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
+        } else if (!Pattern.matches(email.getText(), "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
             changeLabel.setText("Not a correct Email format");
-        }
-        
-        else {
+        } else {
             if (checkEmail(email.getText(), username.getText())) {
 
-                String query = "Insert into TEST.USERS(USERNAME,EMAIL,PASS) values(?,?,?)";
+                String query = "Insert into TEST.USERS(USERNAME,EMAIL,PASS,TEACHER) values(?,?,?,?)";
                 PreparedStatement pst = con.prepareStatement(query);
                 pst.setString(1, username.getText());
                 pst.setString(2, email.getText());
                 pst.setString(3, Hash.getSaltedHash(pass.getText()));
+                pst.setString(4, firstTeacher.getText());
 
                 int rs = pst.executeUpdate();
                 System.out.println(rs);
                 if (rs != 0) {
+                    
+                    
                     changeLabel.setText("Registration done");
+                    
+                    query = "Insert into TEST.PASSTABLE(PASSWORD,USERNAME) values(?,?)";
+                    pst = con.prepareStatement(query);
+                    pst.setString(1, Hash.getSaltedHash(pass.getText()));
+                    pst.setString(2, username.getText());
+                    
+                    rs = pst.executeUpdate();
+                    
                     Thread.sleep(1500);
                     Parent signIn = FXMLLoader.load(getClass().getResource("dash.fxml"));
                     Scene signInScene = new Scene(signIn);
@@ -119,8 +127,6 @@ public class SignUpController {
             }
         }
     }
-
-    
 
     boolean checkEmail(String email, String uname) throws SQLException {
         Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Person", "test", "1234");

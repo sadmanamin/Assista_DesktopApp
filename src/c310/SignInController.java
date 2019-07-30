@@ -39,6 +39,9 @@ public class SignInController {
 
     @FXML
     private URL location;
+    
+    @FXML
+    private Button signUp;
 
     @FXML
     private TextField username;
@@ -54,10 +57,27 @@ public class SignInController {
 
     @FXML
     private Button fbLogin;
+    
+    @FXML
+    void goToSignUp(ActionEvent event) throws IOException {
+        Parent signIn = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+        Scene signInScene = new Scene(signIn);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Assista");
+        window.setScene(signInScene);
+        window.show();
+        System.out.println("Done");
+    }
 
     @FXML
-    void goToForgotPass(ActionEvent event) {
-
+    void goToForgotPass(ActionEvent event) throws IOException {
+        Parent forget = FXMLLoader.load(getClass().getResource("ForgetPass.fxml"));
+        Scene forgetScene = new Scene(forget);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Assista");
+        window.setScene(forgetScene);
+        window.show();
+        System.out.println("Done");
     }
 
     @FXML

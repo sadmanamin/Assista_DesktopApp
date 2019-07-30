@@ -83,6 +83,9 @@ public class TaskManagerController {
             if(sys.cpuUsage()){
                 shutDown_PC(5, 30);
             }
+            else{
+                statusLabel.setText("Program was turned off");
+            }
         }
         
         else{
