@@ -34,7 +34,7 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="357.0">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="98.0" prefWidth="317.0">
+                  <VBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="317.0">
                      <children>
                         <Label text="Sign Up" textFill="#73eb97">
                            <font>
@@ -91,16 +91,28 @@
                         </PasswordField>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="357.0">
-                     <padding>
-                        <Insets left="30.0" right="30.0" />
-                     </padding>
+                  <VBox alignment="CENTER" prefHeight="39.0" prefWidth="357.0">
                      <children>
                         <PasswordField fx:id="confirmPass" prefHeight="25.0" promptText="Confirm Password" style="-fx-background-radius: 10;">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
                         </PasswordField>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" right="30.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="357.0">
+                     <padding>
+                        <Insets left="30.0" right="30.0" />
+                     </padding>
+                     <children>
+                        <TextField fx:id="firstTeacher" prefHeight="25.0" promptText="Who was your first teacher?" style="-fx-background-radius: 10;">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </TextField>
                      </children>
                   </VBox>
                   <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
@@ -120,42 +132,6 @@
                         </Button>
                      </children>
                   </HBox>
-                  <VBox alignment="CENTER" prefHeight="22.0" prefWidth="357.0">
-                     <children>
-                        <Label text="Login with Social Media" textFill="#81ebb5">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </VBox>
-                  <VBox prefHeight="61.0" prefWidth="357.0">
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="357.0">
-                           <children>
-                              <Button fx:id="fbLogin" mnemonicParsing="false" onAction="#goToFBLogin" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #4B6F8C; -fx-background-radius: 10;" text="Facebook" textFill="WHITE">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Gill Sans MT Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #DA4740; -fx-background-radius: 10;" text="Google" textFill="#fffdfd">
-                                 <font>
-                                    <Font name="Gill Sans MT Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
                </children>
             </VBox>
          </children>
