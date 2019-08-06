@@ -81,6 +81,7 @@ public class TaskManagerController {
             System.out.println("Inside Sys.sz");
             statusLabel.setText("PC will be turned off after Jupyter Notebook completes its task");
             if(sys.cpuUsage()){
+                System.out.println("Inside Shutdown");
                 shutDown_PC(5, 30);
             }
             else{

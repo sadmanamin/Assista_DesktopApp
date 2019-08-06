@@ -53,6 +53,8 @@ public class SystemInfoTest {
         long cpu1 = -1, cpu2 = -1, previousTime1 = -1, previousTime2 = -1, timeDifference;
 
         boolean processExists = true;
+        System.out.println("sz = "+sz+" pid1 "+pid1+" pid2 "+pid2);
+        if(sz==1) return pid1;
         
         while (cnt++ != 2) {
             process1 = os.getProcess(pid1);
@@ -104,8 +106,9 @@ public class SystemInfoTest {
 
         HardwareAbstractionLayer hal = si.getHardware();
         OperatingSystem os = si.getOperatingSystem();
-        
+        System.out.println("Before getting largePid");
         int cnt = 0, pid=getLargePid();
+        System.out.println("After getting largePid "+pid);
         CentralProcessor processor = si.getHardware().getProcessor();
         int cpuNumber = processor.getLogicalProcessorCount();
         OSProcess process;
@@ -132,10 +135,10 @@ public class SystemInfoTest {
             previousTime = currentTime;
 
             if (process == null) {
-                return false;
+                return true;
             } else if (cpu == 0) {
                 if (process == null) {
-                    return false;
+                    return true;
                 } else {
                     return true;
                 }

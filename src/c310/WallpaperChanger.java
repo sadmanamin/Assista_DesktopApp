@@ -13,6 +13,8 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
  
 public class WallpaperChanger {
+    
+    
  
      public interface SPI extends StdCallLibrary {
  

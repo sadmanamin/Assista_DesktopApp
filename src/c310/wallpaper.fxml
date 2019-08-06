@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="c310.Wallpaper">
@@ -25,11 +24,7 @@
             </Label>
          </children>
       </HBox>
-      <VBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0">
-         <children>
-            <Rectangle fx:id="dragNdrop" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="51.0" onDragDropped="#setOnDragDropped" onDragExited="#setOnDragExit" onDragOver="#setOnDragOver" stroke="#7da191" strokeType="OUTSIDE" strokeWidth="3.0" width="425.0" />
-         </children>
-      </VBox>
+      <VBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0" />
       <VBox alignment="CENTER" prefHeight="143.0" prefWidth="600.0">
          <children>
             <ImageView fx:id="selectedImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
@@ -59,7 +54,11 @@
                      <font>
                         <Font name="Calibri Light" size="20.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
                   </Button>
+                  <Button fx:id="deletePhoto" mnemonicParsing="false" onAction="#goToDeletePhoto" text="Delete" textFill="#c91616" />
                </children>
             </HBox>
          </children>

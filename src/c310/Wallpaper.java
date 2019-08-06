@@ -39,11 +39,16 @@ import com.sun.jna.Native;
 public class Wallpaper {
 
     FileChooser fileChooser = new FileChooser();
+    
+    private String defaultPath = "C:\\Users\\Sadman\\Desktop\\fullmoon";
 
     public static Stage curStage;
 
     @FXML
     private ResourceBundle resources;
+    
+    @FXML
+    private Button deletePhoto;
 
     @FXML
     private Button goBack;
@@ -59,6 +64,11 @@ public class Wallpaper {
 
     @FXML
     private Button browse;
+    
+    @FXML
+    void goToDeletePhoto(ActionEvent event) {
+        WallpaperChanger.change(defaultPath);
+    }
 
     @FXML
     void goToDash(ActionEvent event) throws IOException {

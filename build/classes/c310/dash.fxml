@@ -34,7 +34,6 @@
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="quickAccess" mnemonicParsing="false" onAction="#goToQuickAccess" prefHeight="65.0" prefWidth="125.0" style="-fx-background-radius: 20; -fx-background-color: #e17055;" text="Quick Access" />
          </children>
       </HBox>
       <VBox alignment="CENTER" prefHeight="61.0" prefWidth="600.0">
